@@ -1,6 +1,10 @@
+import java.util.Arrays;
 public class Quick{
   public static void main(String[] args){
-
+    //testing partition
+    int[] ary = {-100,100,-99,99,-88,100,0,3,2};
+    System.out.println(partition(0,ary.length,ary));
+    System.out.println(Arrays.toString(ary));
   }
   public static int partition(int start,int end,int[] data){
     int pivot = randBetween(start,end);
