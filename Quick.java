@@ -8,7 +8,9 @@ public class Quick{
   }
   public static int partition(int start,int end,int[] data){
     int pivot = randBetween(start,end);
-    swap(pivot = start,start++,data);
+    swap(pivot,start++,data);
+    pivot = start - 1;
+    end--;
     while(start != end){
       if(data[start] > data[pivot]){
         swap(start,end--,data);
@@ -23,7 +25,8 @@ public class Quick{
     return start; //no longer a start obviously but the value that pivot got swapped to
   }
   public static int randBetween(int start,int end){
-    return (int)(Math.abs(Math.random())*(end-start));
+    double out = Math.abs(Math.random())*(end-start);
+    return ((int)out);
   }
   public static void swap(int a,int b,int[] data){
     int temp = data[a];
