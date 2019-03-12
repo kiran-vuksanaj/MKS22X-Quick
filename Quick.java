@@ -4,9 +4,9 @@ public class Quick{
     //testing partition
     for(int i=0;i<9;i++){
       int[] ary = {-100,100,-99,99,-88,100,0,3,2};
-      System.out.println(Arrays.toString(ary));
+      //System.out.println(Arrays.toString(ary));
       System.out.println(quickSelect(ary,i));
-      System.out.println(Arrays.toString(ary));
+      //System.out.println(Arrays.toString(ary));
     }
   }
   public static int partition(int start,int end,int[] data){
@@ -14,7 +14,7 @@ public class Quick{
     swap(pivot,start++,data);
     pivot = start - 1;
     end--;
-    while(start != end){
+    while(start < end){
       if(data[start] > data[pivot]){
         swap(start,end--,data);
       }else{
@@ -41,11 +41,11 @@ public class Quick{
     int left = 0;
     int right = data.length;
     while(true){
-      System.out.println(left + " " + right);
-      for(int i=left;i<right;i++) System.out.print(data[i]+",");
-      System.out.println("");
+      //System.out.println(left + " " + right);
+      //for(int i=left;i<right;i++) System.out.print(data[i]+",");
+      //System.out.println("");
       int pivot = partition(left,right,data);
-      System.out.println(pivot);
+      //System.out.println(pivot);
       if(pivot == k) return data[k];
       if(pivot >  k) right = pivot;
       if(pivot <  k) left = pivot;
