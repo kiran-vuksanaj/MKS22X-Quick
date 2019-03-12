@@ -2,11 +2,13 @@ import java.util.Arrays;
 public class Quick{
   public static void main(String[] args){
     //testing partition
+    int[] sorted = {-100,-99,-88,0,2,3,99,100,100};
     for(int i=0;i<9;i++){
       int[] ary = {-100,100,-99,99,-88,100,0,3,2};
       //System.out.println(Arrays.toString(ary));
-      System.out.println(quickSelect(ary,i));
-      //System.out.println(Arrays.toString(ary));
+      int val = quickSelect(ary,i);
+      System.out.println(val);
+      if(val != sorted[i]) System.out.println("error: "+Arrays.toString(ary));
     }
   }
   public static int partition(int start,int end,int[] data){
@@ -49,7 +51,10 @@ public class Quick{
       if(pivot == k) return data[k];
       if(pivot >  k) right = pivot;
       if(pivot <  k) left = pivot;
-      if(right-left == 2) return data[left+1];
+      if(right-left == 2) {
+        System.out.println("boundsy");
+        return data[left+1];
+      }
     }
   }
 }
