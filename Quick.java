@@ -4,9 +4,9 @@ public class Quick{
     //testing partition
     /*
     int[] data = {-100,100,-99,99,-88,100,0,3,2};
-    int piv = partition(1,4,data);
+    int piv = partition(1,2,data);
     System.out.println(piv+" "+Arrays.toString(Arrays.copyOfRange(data,1,4)));
-    */
+    //*/
     int[] sorted = {-100,-99,-88,0,2,3,99,100,100};
     /*
     int[] ary = {-100,100,-99,99,-88,100,0,3,2};
@@ -19,6 +19,7 @@ public class Quick{
     }
     System.out.println(Arrays.toString(ary));
     //*/
+    /*
     for(int i=0;i<9;i++){
       int[] ary = {-100,100,-99,99,-88,100,0,3,2};
       //System.out.println(Arrays.toString(ary));
@@ -27,8 +28,25 @@ public class Quick{
       if(val != sorted[i]) System.out.println("error: "+Arrays.toString(ary));
     }
     //*/
+    int[][] testArrays = {
+      {},
+      {1},
+      {2,4},
+      {4,2},
+      {9,0,2},
+      {0,2,9},
+      {9,2,0}
+    };
+    for(int i=0;i<testArrays.length;i++){
+      System.out.println(i);
+      quickSort(testArrays[i]);
+      if(!(isSorted(testArrays[i]))){
+        System.out.println(Arrays.toString(testArrays[i]));
+      }
+    }
   }
   public static int partition(int start,int end,int[] data){
+    System.out.println(Arrays.toString(Arrays.copyOfRange(data,start,end)));
     int pivot = randBetween(start,end);
     swap(pivot,start++,data);
     pivot = start - 1;
@@ -85,5 +103,11 @@ public class Quick{
       quickSortH(data,start,pivot);
       quickSortH(data,pivot+1,end);
     }
+  }
+  public static boolean isSorted(int[] data){
+    for(int i=0;i+1<data.length;i++){
+      if(data[i] > data[i+1]) return false;
+    }
+    return true;
   }
 }
