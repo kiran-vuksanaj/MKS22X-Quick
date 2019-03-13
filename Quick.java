@@ -72,9 +72,18 @@ public class Quick{
       //System.out.println(Arrays.toString(data));
     }
     if(right-left < 2){
-      System.out.println("mmm");
       return data[left];
     }
     else return data[left+1];
+  }
+  public static void quickSort(int[] data){
+    quickSortH(data,0,data.length);
+  }
+  public static void quickSortH(int[] data,int start,int end){
+    if(end > start){// when end==start, base case of doing nothing
+      int pivot = partition(start,end,data);
+      quickSortH(data,start,pivot);
+      quickSortH(data,pivot+1,end);
+    }
   }
 }
