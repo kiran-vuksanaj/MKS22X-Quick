@@ -8,6 +8,7 @@ public class Quick{
     System.out.println(piv+" "+Arrays.toString(Arrays.copyOfRange(data,1,4)));
     */
     int[] sorted = {-100,-99,-88,0,2,3,99,100,100};
+    /*
     int[] ary = {-100,100,-99,99,-88,100,0,3,2};
     int val = quickSelect(ary,4);
     int success = 0;
@@ -17,7 +18,7 @@ public class Quick{
       val = quickSelect(ary,4);
     }
     System.out.println(Arrays.toString(ary));
-    /*
+    //*/
     for(int i=0;i<9;i++){
       int[] ary = {-100,100,-99,99,-88,100,0,3,2};
       //System.out.println(Arrays.toString(ary));
