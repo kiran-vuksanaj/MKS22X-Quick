@@ -35,18 +35,18 @@ public class Quick{
       {4,2},
       {9,0,2},
       {0,2,9},
-      {9,2,0}
+      {9,2,0},
+      {9,8,7,6,5,4,3,2,1},
+      {5,3,2,4,6,7,9,5,2,4,5,5,5,5,5,5,5,5,5}
     };
     for(int i=0;i<testArrays.length;i++){
       System.out.println(i);
       quickSort(testArrays[i]);
-      if(!(isSorted(testArrays[i]))){
-        System.out.println(Arrays.toString(testArrays[i]));
-      }
+      System.out.println(Arrays.toString(testArrays[i]));
     }
   }
   public static int partition(int start,int end,int[] data){
-    System.out.println(Arrays.toString(Arrays.copyOfRange(data,start,end)));
+    //System.out.println(Arrays.toString(Arrays.copyOfRange(data,start,end)));
     int pivot = randBetween(start,end);
     swap(pivot,start++,data);
     pivot = start - 1;
@@ -98,7 +98,7 @@ public class Quick{
     quickSortH(data,0,data.length);
   }
   public static void quickSortH(int[] data,int start,int end){
-    if(end > start){// when end==start, base case of doing nothing
+    if(end - start > 1  ){// when end==start, base case of doing nothing
       int pivot = partition(start,end,data);
       quickSortH(data,start,pivot);
       quickSortH(data,pivot+1,end);
