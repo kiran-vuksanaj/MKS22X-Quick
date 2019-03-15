@@ -41,7 +41,7 @@ public class Quick{
     };
     for(int i=0;i<testArrays.length;i++){
       System.out.println(i);
-      quickSort(testArrays[i]);
+      quicksort(testArrays[i]);
       System.out.println(Arrays.toString(testArrays[i]));
     }
   }
@@ -94,7 +94,7 @@ public class Quick{
     }
     else return data[left+1];
   }
-  public static void quickSort(int[] data){
+  public static void quicksort(int[] data){
     quickSortH(data,0,data.length);
   }
   public static void quickSortH(int[] data,int start,int end){
