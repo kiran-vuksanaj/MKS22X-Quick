@@ -47,12 +47,12 @@ public class Quick{
   }
   public static int partition(int start,int end,int[] data){
     //System.out.println(Arrays.toString(Arrays.copyOfRange(data,start,end)));
-    int pivot = randBetween(start,end);
+    int pivot = medianOfThree(data,start,end);
     swap(pivot,start++,data);
     pivot = start - 1;
     end--;
     while(start < end){
-      if(data[start] > data[pivot]){
+      if(data[start] > data[pivot] || (data[start]==data[pivot] && Math.random()>0.5)){
         swap(start,end--,data);
       }else{
         start++;
@@ -102,6 +102,22 @@ public class Quick{
       int pivot = partition(start,end,data);
       quickSortH(data,start,pivot);
       quickSortH(data,pivot+1,end);
+    }
+  }
+  public static int medianOfThree(int[] data,int lo,int hi){
+    int a = randBetween(lo,hi);
+    int b = randBetween(lo,hi);
+    int c = randBetween(lo,hi);
+    int min = Math.min(Math.min(data[a],data[b]),data[c]);
+    int max = Math.max(Math.max(data[a],data[b]),data[c]);
+    if(data[a]==min || data[a]==max){
+      if(data[b]==min || data[b] == max){
+        return c;
+      }else{
+        return b;
+      }
+    }else{
+      return a;
     }
   }
   public static boolean isSorted(int[] data){
