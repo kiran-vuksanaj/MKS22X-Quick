@@ -95,13 +95,18 @@ public class Quick{
     else return data[left+1];
   }
   public static void quicksort(int[] data){
-    quickSortH(data,0,data.length);
+    quickSortH(data,0,data.length,1);
   }
-  public static void quickSortH(int[] data,int start,int end){
-    if(end - start > 1  ){// when end==start, base case of doing nothing
+  public static void quicksort(int[] data,int k){
+    quickSortH(data,0,data.length,k);
+  }
+  public static void quickSortH(int[] data,int start,int end,int k){
+    if(end - start > k  ){// when end==start, base case of doing nothing
       int pivot = partition(start,end,data);
-      quickSortH(data,start,pivot);
-      quickSortH(data,pivot+1,end);
+      quickSortH(data,start,pivot,k);
+      quickSortH(data,pivot+1,end,k);
+    }else{//when array is short enough, just insertionsort
+      insertionsort(data,start,end);
     }
   }
   public static int medianOfThree(int[] data,int lo,int hi){
@@ -125,5 +130,13 @@ public class Quick{
       if(data[i] > data[i+1]) return false;
     }
     return true;
+  }
+  private static void insertionsort(int[] data,int lo,int hi){
+    for(int i=lo+1;i<hi;i++){//at any given time, all values to the left of i are sorted
+      int j = i;
+      while(j > lo && data[j-1] > data[j]){
+        swap(j-1,j--,data);
+      }
+    }
   }
 }
