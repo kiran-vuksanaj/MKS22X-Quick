@@ -51,13 +51,18 @@ public class Quick{
     swap(pivot,start++,data);
     pivot = start - 1;
     end--;
-    while(start < end){
-      if(data[start] > data[pivot] || (data[start]==data[pivot] && Math.random()>0.5)){
-        swap(start,end--,data);
-      }else{
+    int pivotDuplicates = 1;
+    while(start + pivotDuplicates <= end){
+      if(data[pivot] > data[start]){
         start++;
+      }else if(data[pivot] == data[start]){
+        pivotDuplicates++;
+        start++;
+      }else{
+        swap(start,end--,data);
       }
     }
+
     if(data[start] > data[pivot]){
       start--; //start will be used in a moment to swap, value should be <= pivot as it goes to front
     }
