@@ -1,6 +1,7 @@
 import java.util.Arrays;
 public class Driver{
   public static void main(String[]args){
+    int k = Integer.parseInt(args[0]);
     System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
     int[]MAX_LIST = {1000000000,500,10};
     for(int MAX : MAX_LIST){
@@ -17,7 +18,7 @@ public class Driver{
           }
           long t1,t2;
           t1 = System.currentTimeMillis();
-          Quick.quicksort(data2);
+          Quick.quicksort(data2,k);
           t2 = System.currentTimeMillis();
           qtime += t2 - t1;
           t1 = System.currentTimeMillis();
