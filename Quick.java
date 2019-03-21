@@ -95,7 +95,7 @@ public class Quick{
     else return data[left+1];
   }
   public static void quicksort(int[] data){
-    quickSortH(data,0,data.length,1);
+    quickSortH(data,0,data.length,250);
   }
   public static void quicksort(int[] data,int k){
     quickSortH(data,0,data.length,k);
