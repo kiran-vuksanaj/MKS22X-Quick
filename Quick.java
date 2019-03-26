@@ -74,7 +74,7 @@ public class Quick{
     data[b] = temp;
   }
 
-  public static int quickSelect(int[] data,int k){
+  public static int quickselect(int[] data,int k){
     int left = 0;
     int right = data.length;
     while(right-left >= 2){
